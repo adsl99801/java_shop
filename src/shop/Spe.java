@@ -8,19 +8,19 @@ public class Spe {
 	
 	public static ArrayList <Integer> command=new ArrayList();
 	
-	public static String welcome="Åwªï¶i¤J¹CÀ¸¡A½Ğ¿é¤J¼Æ¦r¥HÄ~Äò\n";
+	public static String welcome="æ­¡è¿é€²å…¥éŠæˆ²ï¼Œè«‹è¼¸å…¥æ•¸å­—ä»¥ç¹¼çºŒ\n";
 
 	public static String bye="bye";
 	public static String defaultp1name="p1";
 	public static String defaultp2name="p2";
-	public static String startTip="¶i¤J¹CÀ¸!\n";
-	public static String startgameTip="¹CÀ¸¶}©l¤F!\n";
-	public static String setedSymbol="¢i¢i";
-	public static String shopSymbol= "¢ª¢«";
+	public static String startTip="é€²å…¥éŠæˆ²!\n";
+	public static String startgameTip="éŠæˆ²é–‹å§‹äº†!\n";
+	public static String setedSymbol="â–ˆâ–ˆ";
+	public static String shopSymbol= "â—¥â—¤";
 	public static int defaultNumOfPlayers=2;
 	public static int exitGame=9999;
 	public static int startGame=1;
-	public static String [] commandS={startGame+".¶}©l",exitGame+".Â÷¶}"};
+	public static String [] commandS={startGame+".é–‹å§‹",exitGame+".é›¢é–‹"};
 	Spe(){
 		command.add(startGame);
 		command.add(exitGame);

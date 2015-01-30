@@ -9,7 +9,7 @@ public class Game {
 	private Console console;
 	private int input= 0;
 	private Scanner scanner;
-	ArrayList<Symbol> symbolHistory = new ArrayList();//¬ö¿ı¤w¸g¤U¹Lªº³¡¤À
+	ArrayList<Symbol> symbolHistory = new ArrayList();//ï¿½ï¿½ï¿½ï¿½wï¿½gï¿½Uï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	Game(Scanner scanner){
 		this.scanner=scanner;
 	}
@@ -23,13 +23,13 @@ public class Game {
 		console = new Console();
 		gameGuide();
 		
-		System.out.println("¦b¾\Åª§¹»¡©ú­º¥ı¥Ñ" + p1.getName() + "¶}©l²q!\n");
+		System.out.println("åœ¨é–±è®€å®Œèªªæ˜é¦–å…ˆç”±" + p1.getName() + "é–‹å§‹çŒœ!\n");
 		System.out.println(Spe.startgameTip);
 		console.drawBoard(null);
-		System.out.println("½Ğ±z¥HÁä½L¿é¤J®y¼Ğ:\n");
+		System.out.println("è«‹æ‚¨ä»¥éµç›¤è¼¸å…¥åº§æ¨™:\n");
 	}
 	private void gameGuide() {
-		System.out.println("¹CÀ¸»¡©ú:\n½Ğ¿é¤J®y¼Ğ±q²Ä¤@­Ó¬°0 ¦pªG¿é¤J0®É 00´N·|ÅÜ¦¨"+
+		System.out.println("éŠæˆ²èªªæ˜:\nè«‹è¼¸å…¥åº§æ¨™å¾ç¬¬ä¸€å€‹ç‚º0 å¦‚æœè¼¸å…¥0æ™‚ 00å°±æœƒè®Šæˆ"+
 		Spe.setedSymbol+"\n");
 		Symbol exampleSymbol= new Symbol();
 		exampleSymbol.setSymbol(Spe.setedSymbol);
@@ -41,9 +41,9 @@ public class Game {
 		prepare();
 		while(input!=Spe.exitGame){
 			input= scanner.nextInt();
-			System.out.println("§A¿é¤J" + input+ "\n");
+			System.out.println("ä½ è¼¸å…¥" + input+ "\n");
 			Symbol symbol= new Symbol();
-			symbol.setSymbol(Spe.setedSymbol);//³Q¨Ï¥ÎªÌ¿ï­«ªº¸Ü ¶ñ¤JX
+			symbol.setSymbol(Spe.setedSymbol);//è¢«ä½¿ç”¨è€…é¸é‡çš„è©± å¡«å…¥X
 			symbol.setCoordinate(input);
 			console.drawBoard(symbol);
 			symbolHistory.add(symbol);
