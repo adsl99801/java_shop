@@ -1,66 +1,58 @@
 package shop;
 
+import java.util.ArrayList;
+
 public class Console {
-	// public static int aCellLen=3;
-	public boolean isValidInpInput(int input) {
-
-		return true;
-	}
-
-	private String add0IfLessTen(int n) {
-		if (n < 10) {
-			return "0" + n;
+	private ConsoleTool consoleTool = new ConsoleTool();
+	private ArrayList<Symbol> symbolHistory = new ArrayList();
+	private String printSymbolOrNum(int nownum, Symbol nowsymbol) {
+		if (nowsymbol == null) {
+			return consoleTool.add0IfLessTen(nownum);
 		}
-		return n + "";
-	}
-
-	private void drawOneRowLine() {
-		for (int i = 0; i < Spe.rowNum; i++) {
-			System.out.print("----");// aCellLen
+		if (nowsymbol.getCoordinate() == nownum) {
+			return nowsymbol.getSymbol();
 		}
-		System.out.println("");
-	}
 
-	private int drawOneColLine(int num,Symbol symbol) {
+		for(Symbol s:symbolHistory ){
+			if(s.getCoordinate()==nownum){
+				return nowsymbol.getSymbol();
+			}
+		}
+		return consoleTool.add0IfLessTen(nownum);
+
+	}
+	private int drawOneColLine(int num, Symbol symbol) {
 
 		for (int j = 0; j < Spe.columNum; j++) {
-			
-			if(symbol==null){
-				//代表還沒指定座標
-				System.out.print("|" + add0IfLessTen(num) + "|");
-			}else{
-				if(symbol.getCoordinate()==num){
-					//玩家輸入的座標等於要畫的格子時
-					System.out.print("|" + symbol.getSymbol() + "|");
-				}else{
-					System.out.print("|" + add0IfLessTen(num) + "|");
-				}
-			
-			}
+			System.out.print("|" + printSymbolOrNum(num, symbol) + "|");
 			num++;
 		}
 		System.out.println("");
 		return num;
 	}
 
-	private int drawOneLine(int num,Symbol symbol) {
-		// 形成一行
-		drawOneRowLine();
-		int nextnum = drawOneColLine(num,symbol);
-		drawOneRowLine();
+	private int drawOneLine(int num, Symbol symbol) {
+
+		consoleTool.drawOneRowLine();
+		int nextnum = drawOneColLine(num, symbol);
+		consoleTool.drawOneRowLine();
 		return nextnum;
 	}
 
 	public void drawBoard(Symbol symbol) {
 		int next = 0;
 		for (int i = 0; i < Spe.rowNum; i++) {
-			next = drawOneLine(next,symbol);
+			next = drawOneLine(next, symbol);
 		}
 
 	}
 
 	public void playerChoose(Symbol symbol) {
-		
+		if(consoleTool.isSymbolSeted(symbol,symbolHistory)){
+			return;
+		}
 		drawBoard(symbol);
+		symbolHistory.add(symbol);
+		
 	}
 }

@@ -1,7 +1,7 @@
 package shop;
 
 public class Player {
-	private String name="ª±®a";
+	private String name="";
 	private int score=0;
 
 	public String getName() {

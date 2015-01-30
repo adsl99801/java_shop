@@ -9,7 +9,9 @@ public class Game {
 	private Console console;
 	private int input= 0;
 	private Scanner scanner;
-	ArrayList<Symbol> symbolHistory = new ArrayList();//����w�g�U�L������
+	
+
+	private int round=0;
 	Game(Scanner scanner){
 		this.scanner=scanner;
 	}
@@ -40,13 +42,15 @@ public class Game {
 	public void start() {
 		prepare();
 		while(input!=Spe.exitGame){
+			System.out.println("第"+(round+1)+"回合"+"\n");
 			input= scanner.nextInt();
 			System.out.println("你輸入" + input+ "\n");
 			Symbol symbol= new Symbol();
 			symbol.setSymbol(Spe.setedSymbol);//被使用者選重的話 填入X
 			symbol.setCoordinate(input);
-			console.drawBoard(symbol);
-			symbolHistory.add(symbol);
+			console.playerChoose(symbol);
+			round++;
+			
 			
 		}
 		end();
