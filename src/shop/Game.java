@@ -9,7 +9,6 @@ public class Game {
 	private Console console;
 	private int input= 0;
 	private Scanner scanner;
-	private Symbol symbol;
 	ArrayList<Symbol> symbolHistory = new ArrayList();//紀錄已經下過的部分
 	Game(Scanner scanner){
 		this.scanner=scanner;
@@ -32,22 +31,22 @@ public class Game {
 	private void gameGuide() {
 		System.out.println("遊戲說明:\n請輸入座標從第一個為0 如果輸入0時 00就會變成"+
 		Spe.setedSymbol+"\n");
-		Symbol symbol= new Symbol();
-		symbol.setSymbol(Spe.setedSymbol);
-		symbol.setCoordinate(0);
-		console.drawBoard(symbol);
-		symbol=null;
-		
+		Symbol exampleSymbol= new Symbol();
+		exampleSymbol.setSymbol(Spe.setedSymbol);
+		exampleSymbol.setCoordinate(0);
+		console.drawBoard(exampleSymbol);
+		exampleSymbol=null;
 	}
 	public void start() {
 		prepare();
 		while(input!=Spe.exitGame){
 			input= scanner.nextInt();
 			System.out.println("你輸入" + input+ "\n");
-			symbol= new Symbol();
+			Symbol symbol= new Symbol();
 			symbol.setSymbol(Spe.setedSymbol);//被使用者選重的話 填入X
 			symbol.setCoordinate(input);
 			console.drawBoard(symbol);
+			symbolHistory.add(symbol);
 			
 		}
 		end();
