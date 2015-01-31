@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class ConsoleTool {
 
+
 	public boolean isValidInpInput(int input) {
 
 		return true;
@@ -26,7 +27,7 @@ public class ConsoleTool {
 		// 是否下過子
 		for(Symbol s:symbolHistory ){
 			if(s.getCoordinate()==symbol.getCoordinate()){
-				System.out.print("下過了\n");
+				System.out.print("這個位置被下過了\n");
 				return true;
 			}
 		}
